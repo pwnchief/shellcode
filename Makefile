@@ -6,4 +6,4 @@ clean:
 	make -C stage0/ clean
 
 test: clean build
-	loader/loader stage0/stage0
+	loader/loader stage0/stage0.bin
