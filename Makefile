@@ -1,6 +1,9 @@
 build:
-	gcc loader.c -o loader
-	nasm test.asm -o test.bin
+	make -C loader/
+	make -C stage0/
 clean:
-	rm -f leader
-	rm -f test.bin
+	make -C loader/ clean
+	make -C stage0/ clean
+
+test: clean build
+	loader/loader stage0/stage0
