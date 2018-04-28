@@ -1,3 +1,4 @@
 *.bin
 stage0/stage0
 loader/loader
+.vscode
