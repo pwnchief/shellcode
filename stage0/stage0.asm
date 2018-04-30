@@ -93,6 +93,9 @@ inc rdi
 dec rax
 test rax,rax
 jnz DECRYPT
+
+mov rax, r8
+
 call r10
 
 MAGIC:

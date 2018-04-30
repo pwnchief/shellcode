@@ -1,6 +1,6 @@
 build:
 	gcc loader.c -o loader
-	nasm test.asm -o test.bin
+	nasm bin-sh-excecute.asm -o bin-sh-excecute.bin
 clean:
 	rm -f loader
-	rm -f test.bin
+	rm -f bin-sh-excecute.bin

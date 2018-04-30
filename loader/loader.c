@@ -10,7 +10,7 @@ void main(int argc, char const *argv[])
 	char filename[256];
 	if ( argc != 2){
 			printf("WARNING! defaulting to test.bin shellcode\n");
-			strcpy(filename,"test.bin");
+			strcpy(filename,"bin-sh-excecute.bin");
 		}
 	else {
 		strcpy(filename,argv[1]);

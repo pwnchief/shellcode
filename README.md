@@ -1,8 +1,12 @@
-##Shellcode
+# Shellcode
 A simple C&C server with paylaod delivery system to work in Attack and Defence style CTF's.
 Working on adding encryption to prevent detection over the wire.
 
-#Running the project
+## Dependencies
+
+`gcc radare2 make python3 python3-socket python3-struct`
+
+## 	Running the project
 
 The project is based on a Linux Platform as all syscalls are according to the Linux manuals
 
@@ -14,7 +18,9 @@ to clean the project run
 
 `make clean`
 
-make sure the server is running **NOTE: The server runs on localhost and on port 1234**
+make sure the server is running 
+
+**NOTE: The server runs on localhost and on port 1234**
 
 `python server.py`
 
